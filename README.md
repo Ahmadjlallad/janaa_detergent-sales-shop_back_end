@@ -15,6 +15,7 @@
 
 1. over view of the application
 
+- Nodejs Type script with express
 - data base structure
   - need two collection for no sequel database data base i will use mongoDB
     - one for the products and the other for the sales
