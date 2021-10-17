@@ -5,6 +5,7 @@ interface Receipt {
   barcode: string;
   price: number;
   quantity: number;
+  wholesalePrice: number;
 }
 
 const ItemsSchema = new Schema<Receipt>({
@@ -18,11 +19,17 @@ export interface ReceiptModelInterface {
   date: string;
   time: string;
   total: number;
+  isPaid: Boolean;
+  receiptNumber: number;
+  netProfit: number;
 }
 const receiptSchema = new Schema<ReceiptModelInterface>({
   items: [ItemsSchema],
   date: String,
   time: String,
   total: Number,
+  isPaid: Boolean,
+  receiptNumber: Number,
+  netProfit: Number,
 });
 export default model<ReceiptModelInterface>("receipt", receiptSchema);

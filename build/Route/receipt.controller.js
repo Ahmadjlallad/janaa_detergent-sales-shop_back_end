@@ -32,9 +32,11 @@ receiptRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 }));
 receiptRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.body);
     try {
-        const receipt = yield receiptModel_1.default.create(req.body);
+        const allReceipt = yield receiptModel_1.default.find({});
+        const latestReceipt = allReceipt.length;
+        console.log(latestReceipt, req.body);
+        const receipt = yield receiptModel_1.default.create(Object.assign(Object.assign({}, req.body), { receiptNumber: latestReceipt }));
         res.send(receipt);
     }
     catch (e) {
