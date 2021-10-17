@@ -22,11 +22,14 @@ receiptRouter.get("/", async (req: Request, res: Response) => {
 });
 
 receiptRouter.post("/", async (req: Request, res: Response) => {
-  console.log(req.body);
   try {
-    const receipt = await ReceiptModel.create(
-      req.body as ReceiptModelInterface
-    );
+    const allReceipt = await ReceiptModel.find({});
+    const latestReceipt = allReceipt.length;
+    console.log(latestReceipt, req.body);
+    const receipt = await ReceiptModel.create({
+      ...req.body,
+      receiptNumber: latestReceipt,
+    } as ReceiptModelInterface);
     res.send(receipt);
   } catch (e) {
     res.send(e);

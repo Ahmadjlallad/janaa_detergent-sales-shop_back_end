@@ -12,5 +12,8 @@ const receiptSchema = new mongoose_1.Schema({
     date: String,
     time: String,
     total: Number,
+    isPaid: Boolean,
+    receiptNumber: Number,
+    netProfit: Number,
 });
 exports.default = (0, mongoose_1.model)("receipt", receiptSchema);
