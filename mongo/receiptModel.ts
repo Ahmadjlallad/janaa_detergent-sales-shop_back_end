@@ -13,6 +13,7 @@ const ItemsSchema = new Schema<Receipt>({
   barcode: String,
   price: Number,
   quantity: Number,
+  wholesalePrice: Number,
 });
 export interface ReceiptModelInterface {
   items: Receipt[];

@@ -6,6 +6,7 @@ const ItemsSchema = new mongoose_1.Schema({
     barcode: String,
     price: Number,
     quantity: Number,
+    wholesalePrice: Number,
 });
 const receiptSchema = new mongoose_1.Schema({
     items: [ItemsSchema],
