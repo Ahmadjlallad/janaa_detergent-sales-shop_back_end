@@ -5,6 +5,8 @@ interface Receipt {
     price: number;
     quantity: number;
     wholesalePrice: number;
+    totalPrice: number;
+    wholesalePriceTotalPrice: number;
 }
 export interface ReceiptModelInterface {
     items: Receipt[];
@@ -13,6 +15,7 @@ export interface ReceiptModelInterface {
     total: number;
     isPaid: Boolean;
     receiptNumber: number;
+    receiptNumberForThisDay: number;
     netProfit: number;
 }
 declare const _default: import("mongoose").Model<ReceiptModelInterface, {}, {}, {}>;
