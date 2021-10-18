@@ -6,6 +6,8 @@ interface Receipt {
   price: number;
   quantity: number;
   wholesalePrice: number;
+  totalPrice: number;
+  wholesalePriceTotalPrice: number;
 }
 
 const ItemsSchema = new Schema<Receipt>({
@@ -14,6 +16,8 @@ const ItemsSchema = new Schema<Receipt>({
   price: Number,
   quantity: Number,
   wholesalePrice: Number,
+  totalPrice: Number,
+  wholesalePriceTotalPrice: Number,
 });
 export interface ReceiptModelInterface {
   items: Receipt[];
@@ -22,6 +26,7 @@ export interface ReceiptModelInterface {
   total: number;
   isPaid: Boolean;
   receiptNumber: number;
+  receiptNumberForThisDay: number;
   netProfit: number;
 }
 const receiptSchema = new Schema<ReceiptModelInterface>({
@@ -31,6 +36,7 @@ const receiptSchema = new Schema<ReceiptModelInterface>({
   total: Number,
   isPaid: Boolean,
   receiptNumber: Number,
+  receiptNumberForThisDay: Number,
   netProfit: Number,
 });
 export default model<ReceiptModelInterface>("receipt", receiptSchema);
