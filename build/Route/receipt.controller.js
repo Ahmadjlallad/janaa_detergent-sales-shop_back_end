@@ -23,11 +23,9 @@ receiptRouter.get("/", async (req, res) => {
     }
 });
 receiptRouter.post("/", async (req, res) => {
-    const myDate = new Date();
-    const todayDate = `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate()}`;
     try {
         const allReceipt = await receiptModel_1.default.find({});
-        const todayReceipt = await receiptModel_1.default.find({ date: todayDate });
+        const todayReceipt = await receiptModel_1.default.find({ date: req.body.date });
         console.log(todayReceipt);
         const latestReceipt = allReceipt.length;
         const latestReceiptForThisDay = todayReceipt.length;
