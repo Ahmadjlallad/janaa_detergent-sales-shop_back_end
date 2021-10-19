@@ -37,8 +37,10 @@ receiptRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function
     try {
         const allReceipt = yield receiptModel_1.default.find({});
         const todayReceipt = yield receiptModel_1.default.find({ date: todayDate });
+        console.log(todayReceipt);
         const latestReceipt = allReceipt.length;
         const latestReceiptForThisDay = todayReceipt.length;
+        console.log(latestReceiptForThisDay);
         const receipt = yield receiptModel_1.default.create(Object.assign(Object.assign({}, req.body), { receiptNumber: latestReceipt, receiptNumberForThisDay: latestReceiptForThisDay }));
         res.send(receipt);
     }

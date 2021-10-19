@@ -24,16 +24,12 @@ itemsRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* (
         }
         else {
             const filteredItems = allItems.filter((item) => {
-                console.log("item[type]", item[type]);
-                console.log("\nvalue", value);
-                console.log("\nitem", item);
                 if (item[type] === null)
                     return;
                 if (type === "barcode")
                     return Number(item[type]) === Number(value);
                 return item[type].includes(value);
             });
-            console.log("\nfilteredItems", filteredItems);
             res.send(filteredItems);
         }
     }
