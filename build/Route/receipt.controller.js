@@ -33,7 +33,7 @@ receiptRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function*
 }));
 receiptRouter.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const myDate = new Date();
-    const todayDate = `${myDate.getMonth() + 1}-${myDate.getDate()}-${myDate.getFullYear()}`;
+    const todayDate = `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate()}`;
     try {
         const allReceipt = yield receiptModel_1.default.find({});
         const todayReceipt = yield receiptModel_1.default.find({ date: todayDate });
