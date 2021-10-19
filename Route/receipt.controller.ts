@@ -23,9 +23,9 @@ receiptRouter.get("/", async (req: Request, res: Response) => {
 
 receiptRouter.post("/", async (req: Request, res: Response) => {
   const myDate = new Date();
-  const todayDate = `${
+  const todayDate = `${myDate.getFullYear()}-${
     myDate.getMonth() + 1
-  }-${myDate.getDate()}-${myDate.getFullYear()}`;
+  }-${myDate.getDate()}`;
 
   try {
     const allReceipt = await ReceiptModel.find({});
