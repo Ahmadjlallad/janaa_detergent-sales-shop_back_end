@@ -30,8 +30,10 @@ receiptRouter.post("/", async (req: Request, res: Response) => {
   try {
     const allReceipt = await ReceiptModel.find({});
     const todayReceipt = await ReceiptModel.find({ date: todayDate });
+    console.log(todayReceipt);
     const latestReceipt = allReceipt.length;
     const latestReceiptForThisDay = todayReceipt.length;
+    console.log(latestReceiptForThisDay);
     const receipt = await ReceiptModel.create({
       ...req.body,
       receiptNumber: latestReceipt,
